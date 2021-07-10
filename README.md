@@ -1,8 +1,6 @@
 # WEEK 1
 
-## 作业
-
-> Week01 作业题目：
+## 题目
 
 1.（选做）自己写一个简单的 Hello.java，里面需要涉及基本类型，四则运行，if 和 for，然后自己分析一下对应的字节码，有问题群里讨论。
 
@@ -16,7 +14,7 @@
 
 5.（选做）本机使用 G1 GC 启动一个程序，仿照课上案例分析一下 JVM 情况。
 
-### 作业2操作步骤
+### 必做2操作步骤
 
 1. [√]打开 Spring 官网: https://spring.io/
 2. [√]找到 Projects --> Spring Initializr:  https://start.spring.io/
@@ -25,6 +23,6 @@
 5. [√]增加课程资源 Hello.xlass 文件到 src/main/resources 目录。
 6. 编写代码，实现 findClass 方法，解码方法
 7. 编写main方法，调用 loadClass 方法；
-8. 创建实例，以及调用方法
-9. 执行.
+8. [√]创建实例，以及调用方法
+9. [√]执行.
 
