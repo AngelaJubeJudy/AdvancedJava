@@ -1,0 +1,44 @@
+[0.014s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+[0.034s][info   ][gc] Using Serial
+[0.035s][info   ][gc,heap,coops] Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+正在执行...
+[0.372s][info   ][gc,start     ] GC(0) Pause Young (Allocation Failure)
+[0.461s][info   ][gc,heap      ] GC(0) DefNew: 279616K->34944K(314560K)
+[0.462s][info   ][gc,heap      ] GC(0) Tenured: 0K->65242K(699072K)
+[0.463s][info   ][gc,metaspace ] GC(0) Metaspace: 4018K->4018K(1056768K)
+[0.464s][info   ][gc           ] GC(0) Pause Young (Allocation Failure) 273M->97M(989M) 91.850ms
+[0.465s][info   ][gc,cpu       ] GC(0) User=0.05s Sys=0.03s Real=0.09s
+[0.537s][info   ][gc,start     ] GC(1) Pause Young (Allocation Failure)
+[0.647s][info   ][gc,heap      ] GC(1) DefNew: 314560K->34943K(314560K)
+[0.648s][info   ][gc,heap      ] GC(1) Tenured: 65242K->159218K(699072K)
+[0.649s][info   ][gc,metaspace ] GC(1) Metaspace: 4018K->4018K(1056768K)
+[0.650s][info   ][gc           ] GC(1) Pause Young (Allocation Failure) 370M->189M(989M) 113.376ms
+[0.652s][info   ][gc,cpu       ] GC(1) User=0.03s Sys=0.08s Real=0.12s
+[0.714s][info   ][gc,start     ] GC(2) Pause Young (Allocation Failure)
+[0.807s][info   ][gc,heap      ] GC(2) DefNew: 314559K->34944K(314560K)
+[0.808s][info   ][gc,heap      ] GC(2) Tenured: 159218K->250267K(699072K)
+[0.809s][info   ][gc,metaspace ] GC(2) Metaspace: 4018K->4018K(1056768K)
+[0.810s][info   ][gc           ] GC(2) Pause Young (Allocation Failure) 462M->278M(989M) 96.751ms
+[0.812s][info   ][gc,cpu       ] GC(2) User=0.03s Sys=0.05s Real=0.10s
+[0.890s][info   ][gc,start     ] GC(3) Pause Young (Allocation Failure)
+[0.979s][info   ][gc,heap      ] GC(3) DefNew: 314560K->34944K(314560K)
+[0.980s][info   ][gc,heap      ] GC(3) Tenured: 250267K->332968K(699072K)
+[0.981s][info   ][gc,metaspace ] GC(3) Metaspace: 4018K->4018K(1056768K)
+[0.982s][info   ][gc           ] GC(3) Pause Young (Allocation Failure) 551M->359M(989M) 92.207ms
+[0.983s][info   ][gc,cpu       ] GC(3) User=0.03s Sys=0.06s Real=0.09s
+[1.071s][info   ][gc,start     ] GC(4) Pause Young (Allocation Failure)
+[1.173s][info   ][gc,heap      ] GC(4) DefNew: 314560K->34943K(314560K)
+[1.173s][info   ][gc,heap      ] GC(4) Tenured: 332968K->415029K(699072K)
+[1.175s][info   ][gc,metaspace ] GC(4) Metaspace: 4018K->4018K(1056768K)
+[1.176s][info   ][gc           ] GC(4) Pause Young (Allocation Failure) 632M->439M(989M) 104.451ms
+[1.176s][info   ][gc,cpu       ] GC(4) User=0.03s Sys=0.08s Real=0.11s
+执行结束!共生成对象次数:6364
+[1.238s][info   ][gc,heap,exit ] Heap
+[1.238s][info   ][gc,heap,exit ]  def new generation   total 314560K, used 49241K [0x00000000c0000000, 0x00000000d5550000, 0x00000000d5550000)
+[1.239s][info   ][gc,heap,exit ]   eden space 279616K,   5% used [0x00000000c0000000, 0x00000000c0df64b0, 0x00000000d1110000)
+[1.240s][info   ][gc,heap,exit ]   from space 34944K,  99% used [0x00000000d3330000, 0x00000000d554fff8, 0x00000000d5550000)
+[1.241s][info   ][gc,heap,exit ]   to   space 34944K,   0% used [0x00000000d1110000, 0x00000000d1110000, 0x00000000d3330000)
+[1.241s][info   ][gc,heap,exit ]  tenured generation   total 699072K, used 415029K [0x00000000d5550000, 0x0000000100000000, 0x0000000100000000)
+[1.242s][info   ][gc,heap,exit ]    the space 699072K,  59% used [0x00000000d5550000, 0x00000000eea9d5e8, 0x00000000eea9d600, 0x0000000100000000)
+[1.243s][info   ][gc,heap,exit ]  Metaspace       used 4999K, capacity 5037K, committed 5120K, reserved 1056768K
+[1.244s][info   ][gc,heap,exit ]   class space    used 420K, capacity 444K, committed 512K, reserved 1048576K
