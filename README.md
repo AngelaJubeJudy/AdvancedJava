@@ -1,4 +1,6 @@
-# Week02 作业
+# Week02 
+
+## 题目
 
 1.（选做）使用 GCLogAnalysis.java 自己演练一遍串行 / 并行 /CMS/G1 的案例。
 
