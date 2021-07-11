@@ -1,0 +1,1 @@
+var final={"commandLine":"\"C:\\ProgramData\\chocolatey\\lib\\SuperBenchmarker\\tools\\sb.exe\" -u http://localhost:8801 -c 40 -N 30","start":"2021-07-11T15:02:05.785+08:00","reportingSliceSeconds":3,"end":"2021-07-11T15:02:07.146+08:00","isFinal":true,"slices":[],"max":0,"min":0,"average":0.0,"percentiles":{},"statusCodeSummary":{},"total":0,"rps":0.0,"version":"4.5.1"};
