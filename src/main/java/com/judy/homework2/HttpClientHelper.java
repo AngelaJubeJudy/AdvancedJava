@@ -24,6 +24,8 @@ public class HttpClientHelper {
         CloseableHttpResponse response1 = null;
         try {
             response1 = httpclient.execute(httpGet);
+            response1.setHeader("Content-Type", "image/png");
+
             System.out.println(response1.getStatusLine());
             HttpEntity entity1 = response1.getEntity();
             return EntityUtils.toString(entity1, "UTF-8");
@@ -35,7 +37,7 @@ public class HttpClientHelper {
     }
 
 
-    // GET 调用
+    // POST 调用
     public static String postAsJSON(String url, String json, Map<String, String> headers) throws IOException {
         HttpPost httpPost = new HttpPost(url);
         Set<String> keySet = headers.keySet();
@@ -62,7 +64,7 @@ public class HttpClientHelper {
 
     public static void main(String[] args) throws Exception {
 
-        String url = "http://61.49.49.40:8521/media/front/NeoLink%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84.png";
+        String url = "http://10.200.2.187:8521/v1/tenants_management/download/300835829646276092?front=0&back=1&license=0";
         String text = HttpClientHelper.getAsString(url);
         System.out.println("url: " + url + " ; response: \n" + text);
 
