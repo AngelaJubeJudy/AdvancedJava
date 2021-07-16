@@ -1,0 +1,37 @@
+[0.012s][warning][gc] -XX:+PrintGC is deprecated. Will use -Xlog:gc instead.
+[0.064s][info   ][gc] Using G1
+正在执行...
+[0.282s][info   ][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 82M->34M(1024M) 6.006ms
+[0.308s][info   ][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 105M->58M(1024M) 5.447ms
+[0.339s][info   ][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 132M->86M(1024M) 6.012ms
+[0.372s][info   ][gc] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 165M->119M(1024M) 6.482ms
+[0.430s][info   ][gc] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 229M->153M(1024M) 7.245ms
+[0.495s][info   ][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 303M->206M(1024M) 10.496ms
+[0.546s][info   ][gc] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 348M->249M(1024M) 12.965ms
+[0.586s][info   ][gc] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 377M->287M(1024M) 12.630ms
+[0.625s][info   ][gc] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 412M->313M(1024M) 11.775ms
+[0.663s][info   ][gc] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 424M->358M(1024M) 12.695ms
+[0.732s][info   ][gc] GC(10) Pause Young (Normal) (G1 Evacuation Pause) 507M->406M(1024M) 16.279ms
+[0.792s][info   ][gc] GC(11) Pause Young (Concurrent Start) (G1 Humongous Allocation) 566M->459M(1024M) 14.375ms
+[0.793s][info   ][gc] GC(12) Concurrent Cycle
+[0.799s][info   ][gc] GC(12) Pause Remark 480M->471M(1024M) 1.198ms
+[0.804s][info   ][gc] GC(12) Pause Cleanup 488M->488M(1024M) 0.314ms
+[0.808s][info   ][gc] GC(12) Concurrent Cycle 14.822ms
+[0.842s][info   ][gc] GC(13) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 590M->487M(1024M) 13.211ms
+[0.865s][info   ][gc] GC(14) Pause Young (Mixed) (G1 Evacuation Pause) 546M->442M(1024M) 13.716ms
+[0.886s][info   ][gc] GC(15) Pause Young (Mixed) (G1 Evacuation Pause) 508M->437M(1024M) 8.009ms
+[0.916s][info   ][gc] GC(16) Pause Young (Concurrent Start) (G1 Humongous Allocation) 530M->464M(1024M) 7.577ms
+[0.917s][info   ][gc] GC(17) Concurrent Cycle
+[0.924s][info   ][gc] GC(17) Pause Remark 478M->474M(1024M) 1.508ms
+[0.930s][info   ][gc] GC(17) Pause Cleanup 489M->489M(1024M) 0.429ms
+[0.934s][info   ][gc] GC(17) Concurrent Cycle 16.437ms
+[0.993s][info   ][gc] GC(18) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 650M->511M(1024M) 22.404ms
+[1.017s][info   ][gc] GC(19) Pause Young (Mixed) (G1 Evacuation Pause) 566M->460M(1024M) 13.204ms
+[1.027s][info   ][gc] GC(20) Pause Young (Concurrent Start) (G1 Humongous Allocation) 483M->466M(1024M) 3.712ms
+[1.028s][info   ][gc] GC(21) Concurrent Cycle
+[1.036s][info   ][gc] GC(21) Pause Remark 481M->480M(1024M) 0.836ms
+[1.040s][info   ][gc] GC(21) Pause Cleanup 492M->492M(1024M) 0.520ms
+[1.046s][info   ][gc] GC(21) Concurrent Cycle 17.542ms
+[1.146s][info   ][gc] GC(22) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 739M->528M(1024M) 23.063ms
+[1.168s][info   ][gc] GC(23) Pause Young (Mixed) (G1 Evacuation Pause) 574M->494M(1024M) 12.751ms
+执行结束!共生成对象次数:9993
