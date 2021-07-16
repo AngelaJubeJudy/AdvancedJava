@@ -1,0 +1,4 @@
+*.java linguist-language=java
+*.cpp linguist-language=c++
+*.py linguist-language=python
+*.md linguist-language=markdown
