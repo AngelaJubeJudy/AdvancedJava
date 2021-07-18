@@ -7,7 +7,8 @@
 * [TOPIC Ⅲ：GC](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A2%EF%BC%9AGC.md)
 * [TOPIC Ⅳ：JAVA Socket](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A3%EF%BC%9AJAVA%20Socket.md)
 * [TOPIC Ⅴ：Netty & API Gateway](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A4%EF%BC%9ANetty%20%26%20API%20Gateway.md)
-* [TOPIC Ⅵ JAVA Concurrent Programming](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A5%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A0.md)
+* [TOPIC Ⅵ JAVA Concurrent Programming Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A5%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A0.md)
+* [TOPIC Ⅶ: JAVA Concurrent Programming Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A6%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A1.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
