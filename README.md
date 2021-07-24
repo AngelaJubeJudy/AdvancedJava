@@ -9,6 +9,7 @@
 * [TOPIC Ⅴ：Netty & API Gateway](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A4%EF%BC%9ANetty%20%26%20API%20Gateway.md)
 * [TOPIC Ⅵ JAVA Concurrent Programming Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A5%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A0.md)
 * [TOPIC Ⅶ: JAVA Concurrent Programming Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A6%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A1.md)
+* [TOPIC Ⅷ: JAVA Concurrent Programming Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A7%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A2.md)
 * [TOPIC Ⅸ: JAVA Framework Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A8%20-%20JAVA%20Framework%20%E2%85%A0.md)
 
 ### PRACTICES
