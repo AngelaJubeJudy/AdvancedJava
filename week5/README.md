@@ -3,13 +3,27 @@
 ## Obligatory
 
 2. （`必做`）写代码实现 Spring Bean 的装配，方式越多越好（XML、Annotation 都可以）。
+* 显式`XML 配置` / @AutoWire 注解注入。
+* `半自动注解配置`：当前类在 Spring 加载时变成 Spring 的 Bean，放在容器中。
+    * @Service, @Components, @Repository
+* `Java Config 配置`
+    * @Bean：一个方法的返回结果可以作为一个 Bean 放在容器中。
+    * @Configuration 类：专门做注解相关的配置的类
+* `全自动注解配置`
+    * @AutoConfigureX 机制（静态）
+    * @Condition 机制：运行时根据条件灵活的配置组装
+* 路径
+    * \homework5\src\main\java\com\judy\democlass
+    * \homework5\src\main\java\com\judy\springbean
 
-8. （`必做`）给之前的 Student/Klass/School 实现自动配置和 Starter。
+8. （`必做`）给前面课程提供的 Student/Klass/School 实现自动配置和 Starter。
+* 路径：\homework5\src\main\java\com\judy\springboot
 
 10. （`必做`）研究一下 JDBC 接口和数据库连接池，掌握它们的设计和用法：
 * 1）使用 JDBC 原生接口，实现数据库的增删改查操作。
 * 2）使用事务，PrepareStatement 方式，批处理方式，改进上述操作。
 * 3）配置 Hikari 连接池，改进上述操作。提交代码到 GitHub。
+* 路径：\homework5\src\main\java\com\judy\springjdbc
 
 
 ## Optional
