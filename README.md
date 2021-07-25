@@ -11,6 +11,7 @@
 * [TOPIC Ⅶ: JAVA Concurrent Programming Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A6%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A1.md)
 * [TOPIC Ⅷ: JAVA Concurrent Programming Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A7%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A2.md)
 * [TOPIC Ⅸ: JAVA Framework Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A8%20-%20JAVA%20Framework%20%E2%85%A0.md)
+* [TOPIC Ⅹ: JAVA Framework Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9%20-%20JAVA%20Framework%20%E2%85%A1.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
