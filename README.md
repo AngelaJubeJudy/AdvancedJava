@@ -12,6 +12,7 @@
 * [TOPIC Ⅷ: JAVA Concurrent Programming Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A7%20-%20JAVA%20Concurrent%20Programming%20%E2%85%A2.md)
 * [TOPIC Ⅸ: JAVA Framework Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A8%20-%20JAVA%20Framework%20%E2%85%A0.md)
 * [TOPIC Ⅹ: JAVA Framework Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9%20-%20JAVA%20Framework%20%E2%85%A1.md)
+* [TOPIC Ⅹ-Ⅰ: JAVA Framework Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A0%E2%80%94%E2%80%94JAVA%20Framework%20%E2%85%A2.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
@@ -19,7 +20,7 @@
 * [WEEK 3](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week3)
 * [WEEK 4](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week4)
 * [WEEK 5](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week5)
-* WEEK 6
+* [WEEK 6](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week6)
 * WEEK 7
 * WEEK 8
 * WEEK 9
