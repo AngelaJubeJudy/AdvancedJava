@@ -14,7 +14,7 @@
 * [TOPIC Ⅹ: JAVA Framework Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9%20-%20JAVA%20Framework%20%E2%85%A1.md)
 * [TOPIC Ⅹ-Ⅰ: JAVA Framework Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A0%E2%80%94%E2%80%94JAVA%20Framework%20%E2%85%A2.md)
 * [TOPIC Ⅹ-Ⅱ: PERFORMANCE & SQL OPTIMIZATION Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A1%E2%80%94%E2%80%94PERFORMANCE%20%26%20SQL%20OPTIMIZATION%20%E2%85%A0.md)
-* [TOPIC Ⅹ-Ⅲ: PERFORMANCE & SQL OPTIMIZATION Ⅱ]()
+* [TOPIC Ⅹ-Ⅲ: PERFORMANCE & SQL OPTIMIZATION Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A2%E2%80%94%E2%80%94PERFORMANCE%20%26%20SQL%20OPTIMIZATION%20%E2%85%A1.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
