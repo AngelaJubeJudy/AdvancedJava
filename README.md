@@ -25,7 +25,7 @@
 * [WEEK 5](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week5)
 * [WEEK 6](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week6)
 * [WEEK 7](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week7)
-* WEEK 8
+* [WEEK 8](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week8)
 * WEEK 9
 * WEEK 10
 * WEEK 11
