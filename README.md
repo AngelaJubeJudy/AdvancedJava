@@ -16,6 +16,8 @@
 * [TOPIC Ⅹ-Ⅱ: PERFORMANCE & SQL OPTIMIZATION Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A1%E2%80%94%E2%80%94PERFORMANCE%20%26%20SQL%20OPTIMIZATION%20%E2%85%A0.md)
 * [TOPIC Ⅹ-Ⅲ: PERFORMANCE & SQL OPTIMIZATION Ⅱ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A2%E2%80%94%E2%80%94PERFORMANCE%20%26%20SQL%20OPTIMIZATION%20%E2%85%A1.md)
 * [TOPIC Ⅹ-Ⅳ: HA & RW SPLITTING](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A3%E2%80%94%E2%80%94HA%20%26%20RW%20SPLITTING.md)
+* [TOPIC Ⅹ-Ⅴ: Database Sharding](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A4%E2%80%94%E2%80%94%20Database%20Sharding.md)
+* [TOPIC Ⅹ-Ⅵ: DISTRIBUTED TRANSACTION](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A5%E2%80%94%E2%80%94DISTRIBUTED%20TRANSACTION.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
