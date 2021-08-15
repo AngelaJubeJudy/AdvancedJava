@@ -43,6 +43,16 @@ show schemas;
 use sharding_db;
 insert into t_order(user_id, status) values(1, "OK"),(1, "FAIL");
 insert into t_order(user_id, status) values(2, "OK"),(2, "FAIL");
+insert into t_order(user_id, status) values(16, "OK"),(1, "FAIL");
+insert into t_order(user_id, status) values(17, "OK"),(2, "FAIL");
 
--- 通过查询虚拟表 t_order
+-- 验证分库分表结果（以上插入的4条记录在真实数据库表里按配置文件规则分布）
+select * from demo_ds_0.t_order_0;
+select * from demo_ds_0.t_order_1;
+-- .....
+select * from demo_ds_1.t_order_0;
+select * from demo_ds_1.t_order_1;
+-- .....
+
+-- 通过查询虚拟表 t_order，可将上述结果一并查出
  select * from t_order;
