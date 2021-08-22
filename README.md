@@ -19,7 +19,7 @@
 * [TOPIC Ⅹ-Ⅴ: Database Sharding](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A4%E2%80%94%E2%80%94%20Database%20Sharding.md)
 * [TOPIC Ⅹ-Ⅵ: DISTRIBUTED TRANSACTION](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A5%E2%80%94%E2%80%94DISTRIBUTED%20TRANSACTION.md)
 * [TOPIC Ⅹ-Ⅶ: DISTRIBUTED SERVICES Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A6%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A0.md)
-* [TOPIC Ⅹ-Ⅷ: DISTRIBUTED SERVICES Ⅱ——Dubbo]()
+* [TOPIC Ⅹ-Ⅷ: DISTRIBUTED SERVICES Ⅱ——Dubbo](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A7%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A1%E2%80%94%E2%80%94Dubbo.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
