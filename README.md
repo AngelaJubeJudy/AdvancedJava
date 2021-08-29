@@ -20,6 +20,8 @@
 * [TOPIC Ⅹ-Ⅵ: DISTRIBUTED TRANSACTION](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A5%E2%80%94%E2%80%94DISTRIBUTED%20TRANSACTION.md)
 * [TOPIC Ⅹ-Ⅶ: DISTRIBUTED SERVICES Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A6%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A0.md)
 * [TOPIC Ⅹ-Ⅷ: DISTRIBUTED SERVICES Ⅱ——Dubbo](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A7%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A1%E2%80%94%E2%80%94Dubbo.md)
+* [TOPIC XIX: DISTRIBUTED SERVICES Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XIX%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A2.md)
+* [TOPIC XX: DISTRIBUTED SERVICES Ⅳ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XX%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A3.md)
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
