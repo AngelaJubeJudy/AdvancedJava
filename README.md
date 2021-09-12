@@ -24,7 +24,8 @@
 * [TOPIC XX: DISTRIBUTED SERVICES Ⅳ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XX%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A3.md)
 * [TOPIC XXI: DISTRIBUTED CACHING Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXI%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A0.md)
 * [TOPIC XXII: DISTRIBUTED CACHING Ⅱ: Redis](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXII%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A1%20-%20Redis.md)
-* [TOPIC XXIII: DISTRIBUTED CACHING Ⅰ: Redis HA]()
+* [TOPIC XXIII: DISTRIBUTED CACHING Ⅰ: Redis HA](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXIII%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A2%20-%20Redis%20HA.md)
+* [TOPIC XXIV: DISTRIBUTED MESSAGING Ⅰ]()
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
