@@ -22,6 +22,9 @@
 * [TOPIC Ⅹ-Ⅷ: DISTRIBUTED SERVICES Ⅱ——Dubbo](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20%E2%85%A9-%E2%85%A7%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A1%E2%80%94%E2%80%94Dubbo.md)
 * [TOPIC XIX: DISTRIBUTED SERVICES Ⅲ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XIX%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A2.md)
 * [TOPIC XX: DISTRIBUTED SERVICES Ⅳ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XX%E2%80%94%E2%80%94DISTRIBUTED%20SERVICES%20%E2%85%A3.md)
+* [TOPIC XXI: DISTRIBUTED CACHING Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXI%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A0.md)
+* [TOPIC XXII: DISTRIBUTED CACHING Ⅱ: Redis](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXII%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A1%20-%20Redis.md)
+* [TOPIC XXIII: DISTRIBUTED CACHING Ⅰ: Redis HA]()
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
@@ -34,8 +37,8 @@
 * [WEEK 8](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week8)
 * [WEEK 9](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week9)
 * WEEK 10
-* WEEK 11
-* WEEK 12
+* [WEEK 11](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week11)
+* [WEEK 12](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week12)
 * WEEK 13
 * WEEK 14
 * WEEK 15
