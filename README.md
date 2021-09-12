@@ -25,7 +25,9 @@
 * [TOPIC XXI: DISTRIBUTED CACHING Ⅰ](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXI%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A0.md)
 * [TOPIC XXII: DISTRIBUTED CACHING Ⅱ: Redis](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXII%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A1%20-%20Redis.md)
 * [TOPIC XXIII: DISTRIBUTED CACHING Ⅰ: Redis HA](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/TOPIC%20XXIII%E2%80%94%E2%80%94DISTRIBUTED%20CACHING%20%E2%85%A2%20-%20Redis%20HA.md)
-* [TOPIC XXIV: DISTRIBUTED MESSAGING Ⅰ]()
+* [TOPIC XXIV: DISTRIBUTED MESSAGING Ⅰ, ActiveMQ]()
+* [TOPIC XXV: DISTRIBUTED MESSAGING Ⅱ, Kfaka]()
+* [TOPIC XXVI: DISTRIBUTED MESSAGING Ⅲ, Other MQs]()
 
 ### PRACTICES
 * [WEEK 1](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week1)
@@ -40,6 +42,6 @@
 * WEEK 10
 * [WEEK 11](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week11)
 * [WEEK 12](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week12)
-* WEEK 13
+* [WEEK 13](https://github.com/AngelaJubeJudy/AdvancedJava/tree/main/week13)
 * WEEK 14
 * WEEK 15
