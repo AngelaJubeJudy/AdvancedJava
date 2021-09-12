@@ -97,7 +97,7 @@
 
 
 ## Cluster 集群
-### 手动
+### 方式一：手动
 * 创建容器
     ```bash
     sudo docker run --name redis2 -v /redis2/redis.conf:/redis-5.0.8/redis.conf -d redis
@@ -141,16 +141,16 @@
     redis-cli --cluster create 120.0.0.1:7000 120.0.0.1:7001 120.0.0.1:7002 120.0.0.1:7003 120.0.0.1:7004 120.0.0.1:7005 --cluster-replicas 1
     ```
     * 可能遇到的问题：3个Master节点未完全分配slots，导致集群构建失败。
-        * 解决：[1]()，[2]()，[3]()
+        * 解决：[1](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/week12/111.png)，[2](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/week12/112.png)，[3](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/week12/113.png)
     * 可能遇到的问题：docker pause一个redis container，查询CLUSTER INFO发现整个集群都fail了，slave node没有自动升级为master node.
-        * 解决：在redis-cli中使用CLUSTER FAILOVER FORCE命令（在此之前请在各节点redis.conf文件中配置masterauth一项）。[4]()    
+        * 解决：在redis-cli中使用CLUSTER FAILOVER FORCE命令（在此之前请在各节点redis.conf文件中配置masterauth一项）。[4](https://github.com/AngelaJubeJudy/AdvancedJava/blob/main/week12/114.png)    
 * 检查
     ```redis-cli
     127.0.0.1 7000> CLUSTER INFO
     127.0.0.1 7000> CLUSTER NODES
     ```
 
-### 脚本自动化
+### 方式二：脚本自动化
 * 节点配置脚本
     ```bash
     # ./addNodesConf：通过脚本创建6个redis配置
@@ -200,7 +200,7 @@
     10.200.207.121 7001> CLUSTER NODES
     ```
 
-### 
+### 方式三：命令启动
 * 启动
     ```redis-cli
     cluster-enabled yes
@@ -210,8 +210,3 @@
     127.0.0.1 6380> CLUSTER INFO
     127.0.0.1 6380> CLUSTER NODES
     ```
-
-
-
-
-
