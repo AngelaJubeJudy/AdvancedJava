@@ -69,3 +69,94 @@
         * 流程：抽象（子组件和关键对象） -> 依赖（组件间的关系） -> 组件化 -> 拼成整体
 
 
+### 3. 并发编程
+* 关键点：`Moore's Law 失败，“多核 + 分布式”时代来临`
+    * __多线程__
+        * 线程
+            * 核心状态 RWB：READY（就绪；拿到锁，解除等待）, Runnable（执行 start() 启动新线程后，拿到 CPU 时间片前）, RUNNING（抢到了 CPU 时间片的线程运行）, WAITING / TIMED_WAITING（主动等待）, Blocked（被动等待；遇到同步代码块/锁，被通知）.
+            * 创建：Runnable 接口（重载 run() 方法，定义当前线程里的一个任务），Thread 类（继承了 Runnabele 接口；调用 start() 方法，JVM 真正创建一个 OS 线程；重载 run() 方法，定义当前线程里的一个任务）。
+            * 方法：run, start, join, sleep, wait, notify / notifyAll
+            * 多线程间统一协调调度： wait, notify / notifyAll
+            * 中断处理：方法一，interrupt() + InterruptedException 异常；方法二，设置一个外部的全局状态。
+        * 线程安全
+            * 问题描述：不同线程竞争/同步相同资源。若资源的读写顺序敏感，则存在“竞态条件”（临界区：导致竞态条件发生的代码区）。
+            * 并发相关性质：原子性，可见性（关键字：volatile，保证当前变量的更新立刻被更新到主内存，各线程的即时修改同步在各自的副本上；关键字 synchronized 和接口 Lock，保证统一时刻只有一个线程获取锁然后执行同步代码，释放锁前变量的所有修改刷新到主内存），有序性（“happens-before 原则”，便于在多线程代码运行时设置锚点）。
+        * 线程池
+            * 出发点：线程属于重量级资源；CPU 核心数有限，线程的物理资源也有限；线程过多，上下文切换开销大，并行效率下降。
+            * Executor 接口：顶层，包含一个无返回值的 execute(Runnable task) 方法。
+            * ExecutorService 接口：继承 Executor 接口。shutdown() 方法，三个 submit() 方法。在 submit() 调用过程中，另一个线程的返回值 & 异常均可捕获。
+            * ThreadPoolExecutor：（核心步骤）addWorder(task, true) --> workQueue.offer(task) --> addWorder(task, false)。首先判断正在执行的线程数量是否达到线程池的“核心线程数”；未达到，创建新线程处理任务；达到，放入工作队列/缓冲队列（BlockingQueue）。缓冲队列满时，判断是否达到“最大线程数”；未达到，创建新线程处理任务；达到（此时新线程可以复用已释放的 CPU 时间片），执行拒绝策略（不显式定义则使用默认策略）。
+            * ThreadFactory：批量在线程池中创建具有相同配置、特定属性的一组线程。
+            * Executors 工具类
+            * 基础接口：Callable（call() 方法，得到有泛型的返回值），Future（对应异步执行的一个任务，最终需要拿到返回值；get() 方法的两个重载，一个是预期异步线程很快执行完，一个是异步线程的执行时长不确定）。
+    * __并发__
+        * JAVA 并发包 JUC (java.util.concurrency)
+            * 5类核心功能：锁，原子类，线程池，工具类，集合类。
+            * 5类接口：锁机制类（Lock, Condition, ReentrantLock, ReadWriteLock, LockSupport），原子操作类（AtomicInteger, AtomicLong, LongAdder），线程池相关类（ Future, Callable, Executor, ExecutorService），信号量工具类（CountDownLatch, CyclicBarrier, Semaphore），并发集合类（CopyOnWriteArrayList, ConcurrentMap）。
+        * 锁（interface Lock）
+            * 工具包：java.util.concurrent.locks
+            * 出发点：显示的锁（更灵活） vs { wait & nofity 机制，synchronized 同步块机制}
+            * interface Lock
+                * 基础实现类：ReentrantLock，公平锁，非公平锁。
+                * ReadWriteLock 读写锁：（场景）并发读、并发写（需要保证写期间数据的一致性），读多写少。
+            * interface Condition
+                * 一个锁可以有多个 Condition
+            * LockSupport：静态方法
+            * 最佳实践
+                * 永远只在更新对象的成员变量时加锁
+                * 永远只在访问可变的成员变量时加锁
+                * 永远不在调用其他对象的方法时加锁（外部加锁，无法控制锁粒度）
+            * 原则————“最小使用锁范围”
+                * 降低锁范围：降低锁定代码的作用域（提升整体的运行效率）
+                * 细分锁粒度：一个大锁拆分成多个小锁（提升并发能力）
+        * 并发原子类
+            * 工具包：java.util.concurrent.atomic
+            * 出发点：显示的锁 + { wait & nofity 机制，synchronized 同步块机制}，本质都是操作的串行化，相当于单线程处理，本质上未并发执行。
+            * 底层原理：CAS 机制（CompareAndSwap，相当于乐观锁，通过自旋重试保证写入）。
+            * 适用场景：并发压力一般时，无锁更快（大部分时候都是一次写入，并发性能提升。并发压力较大时， 本地不停自旋会占用大量资源；较小时，是否使用 CAS 影响不大）。
+            * 改进：分段思想（将读写竞争热点 value 拆分成和线程数一样多的数组 cell[]，按线程数分段；每个线程写自己的 cell[i]，最后对数组求和）。
+        * 并发工具类
+            * 面向更复杂多线程协作的场景
+            * 基于队列同步器 AQS（AbstractQueuedSynchronizer，构建锁和并发工具类的基础，JUC 的核心组件）实现的并发工具类：抽象了竞争的资源和线程队列；更灵活、更细粒度
+                * Semaphore：对当前进入队列的线程，同一时间下的并发线程数控制。
+                * CountDownLatch：阻塞主线程，子线程均满足条件时，主线程继续。达到聚合点后不可复用。
+            * CyclicBarrier：任务执行到一定阶段，等待其他任务对齐（阻塞各子线程，回调聚合）；阻塞 N 个线程时所有线程被唤醒继续。达到聚合点后，可循环使用（计数为 0 时重置为 N）。
+            * Future 模式：Future / FutureTask / CompletableFuture
+                * 单个线程/任务的执行结果：Future / FutureTask
+                * 多个异步结果的组合、封装，异步的回调处理：CompletableFuture
+        * 并发集合类
+            * List
+                * 分类：ArrayList, LinkedList（均存在写冲突和读写冲突）
+                * 线程安全问题解决方案
+                    * 读写操作加锁（大锁）
+                    * CopyOnWriteArrayList 类：对写加锁（串行写；每个线程写在各自副本上，写完替换原容器中引用的指针），对读采取快照思维（每个线程无锁并发读原容器）。实现读写分离，保证最终一致。
+            * Map
+                * 分类：HashMap, LinkedHashMap, ConcurrentHashMap
+                * 写冲突 + 读写冲突 + keys()无序：HashMap, LinkedHashMap
+                * 改进：ConcurrentHashMap（原理————“分段锁”：一个大的 HashMap 中默认定义16个 segment，即并发级别 concurrentLevel=16，降低了大锁的粒度。并发级别可调，最多允许16个线程并发地操作16个 segment）。
+                    * 退化（所有并发线程都focus在同一个segment）：HashMap + 大锁。
+            * 解决方案总结
+                * ArrayList, LinkedList：采用“副本机制”
+                * HashMap, LinkedHashMap：采用分段锁或 CAS 机制
+* 经验认识：
+    * 线程安全问题解决方案：（思路）减少锁的粒度，增加并发粒度
+        * 方案一————同步块（关键字：synchronized），操作结果对其他线程可见。执行粒度：方法，对象（偏向锁，轻量级锁/乐观锁，重量级锁）。
+        * 方案二————volatile（场景：单个线程写，多个线程读），操作前对操作后可见。替代方案：Atomic 原子操作类。
+        * 方案三————final（场景：仅可读，跨线程安全）
+    * 四种经典利器
+        * ThreadLocal 类（针对并发的线程安全问题。在当前线程内进行变量和数据的传递；同一线程跨方法调用栈的调用，在最外层将要操作的数据放入 ThreadLocal 实例）
+        * Stream in JDK8（流水线化的处理模型，将批量数据的单线程处理和多线程并行处理在接口层面做了统一）
+        * 伪并发问题
+        * 分布式下的锁和计数器（分布式环境下应考虑并行，超出了线程的协作机制）
+    * 加锁前的考虑
+        * 粒度：能小则小（意味着大部分代码可以并发执行）
+        * 性能（提升效率）
+        * 重入（防止线程卡死）
+        * 公平（防止线程饿死）
+        * 自旋锁（Spinlock，大大降低使用锁的开销）
+        * 场景：必须基于业务场景！
+    * 线程间协作与通信
+        * 共享数据和变量
+        * 线程协作
+        * 进程协作
+    
