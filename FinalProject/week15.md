@@ -889,3 +889,191 @@
         * 监控 CPU 的使用防止单线程模式下的高延迟）
 
 
+### 9. 分布式消息队列
+#### 关键点
+##### 从队列到消息服务
+* 系统间通信
+    * 方式：基于文件，基于共享内存，基于 IPC，基于 Socket，基于数据库，基于 RPC，基于消息队列。
+    * 分布式系统需求：节点间实现异步消息通信（通信双方不直接联系、不必一直在线，降低节点间复杂度），简化各方复杂依赖，请求量很大时有缓冲，某些情况下保障消息的可靠性（甚至接收顺序）。
+* 从队列到消息服务
+    * MQ: Message Queue, Messaging System, Message Middleware, Message Broker.
+    * 消息队列做缓冲，实现平滑的业务处理。
+    * 数据结构：MQ 类比内存里的队列（Queue），作为独立的 server 远程部署，实现消息服务中间件。
+    * Messaging System 系统角色：消费者，生产者（一个系统可以同时是某队列的生产者和其他队列的消费者）。
+    * MQ 四大特性：
+        * 异步通信————减少等待；批量操作。
+        * 系统解耦————降低依赖；离线完成。
+        * 削峰平谷————缓冲压力。
+        * 可靠通信————不同模式；消息有序。
+    * 消息队列结构
+        * 交换器（Exchange）：消息的持久化 + 消息到某队列的分发
+        * 分发器（Dispatch）：消息投递到订阅者
+        * 协议
+            * 内部（4层）：客户端应用层（收 & 发），消息模型层（消息、连接、会话、事务的实现层），消息处理层（交互 & 持久化），网络传输层（序列化协议、传输协议、可靠机制）。
+            * 外部（2层）：安全层，管理层。
+* 消息模式与消息协议
+    * 消息处理模式
+        * 点对点：Queue（1 Sender --> 1 Queue --> 1 Receiver）
+        * 发布订阅：Topic（1 Publisher --> 1 Topic --> n Subscribers）
+    * 实现
+        * 可靠性
+            * 消息语义的3个QoS：At most once（可能丢失，不会重复）, At least once（可能重复，不会丢失）, Exactly once（仅传输一次）
+            * 消息处理的事务性：通过“确认机制”实现。可纳入事务管理器管理，异步的 MQ 甚至支持 XA。
+        * 有序性：同一个 Topic/Queue 的消息，保障按顺序投递。
+            * 分布式处理消息后跨分区的消息不再有序，多线程的并发批处理也使消息不再有序。
+            * MQ 的顺序读写能力提升了系统整体的吞吐性能。
+    * 消息协议（STOMP, JMS, AMQP, MQTT, XMPP, Open Messaging）
+        * AMQP & MQTT：完备的、多层级的消息协议；协议驱动包具有可重用性（可兼容访问支持该协议的任意 MQ）。
+        * JMS (Java Messaging Service)
+            * 应用层的 API 协议，偏向于客户端接口，制定了一整套接口和类：ConnectionFactory --> Connection（物理连接） --> Session（逻辑连接） --> Message & MessageProducer & MessageConsumer
+            * Message 结构：body + Header + Property + Queue / Topic / TemporaryQueue / TemporaryTopic + Connection / Session / Producer / Consumer / DurableSubscription
+            * Messaging 行为：消息的持久化（默认 Queue 中所有消息持久化、Topic 中所有消息不持久化），事务机制，确认机制。
+
+##### 开源消息中间件
+###### 一代：ActiveMQ / RabbitMQ （支持 AMQP 协议）
+* 特点
+    * 功能丰富；实现经典的企业集成模式；对内存使用要求较高（要求消息不大量堆积）。
+* ActiveMQ
+    * 特点：功能齐全，高可靠、事务性的开源消息中间件。
+    * 功能  
+        * 多语言、多协议编写客户端
+        * 完全支持 JMS 1.1 和 J2EE 1.4 规范
+        * 与 Spring 很好集成；支持常见 J2EE 服务器
+        * 支持多种传输协议
+        * 支持通过 JDBC 和 Journal 提供高速的消息持久化；实现自带日志的持久化
+        * 实现高性能的集群模式
+    * 常见业务场景：订单处理，消息通知，服务降级等异步的业务场景。
+    * 使用：通过 JMS 使用 ActiveMQ，注入 activemq-all 依赖。
+* RabbitMQ
+    * 基于 Erlang
+    * 核心
+        * 通信双方：Publisher, Consumer
+        * 概念：queue（消息队列），exchange（实体对象），routekey（exchange 和 queue 绑定的依据），binding（实体对象；通过修改绑定关系即可修改应用程序通信双方的通信流程）。
+    * 使用：Spring Boot 集成 RabbitMQ，注入 spring-boot-starter-amqp 依赖。
+###### 二代：Kafka / RocketMQ
+* 特点
+    * 针对第一代不支持大数据量的堆积做了改造：使用磁盘做 WAL（Write Ahead Log，预写日志），采用叠加顺序写日志的方式堆积数据；磁盘允许的情况下堆积数据不影响 MQ 的性能。
+    * 相比于一代的 MQ，二代的 MQ 的服务端 broker 相对轻量级，更关注消息本身，只负责消息的存储和简单的分发。Broker 上维护的状态少了，有利于大规模 broker 集群（单位时间内支持更多客户端连接）。
+* Kafka
+    * 基于 Scala 
+    * 设计目标/特点：
+        * 常数时间复杂度持久化消息
+        * 高吞吐率
+        * 支持 Kafka server 间的消息分区（Partition）及分布式消费
+        * 消息的缓冲器支持数据处理的离线模式和在线模式
+        * 支持在线水平扩展（基于“分区”和“多副本机制”）。
+    * 核心概念：
+        * Broker（Kafka 集群中的服务器，消息的代理中介）
+        * Topic（消息的逻辑分类；可以是集群分布式结构，包含多个 Partition）
+            * 通过 Partition 增加可扩展性和并行处理能力。
+            * 通过“顺序写”达到高吞吐。
+            * “多副本机制”增加容错性，
+                * 允许丢失的最多副本数为确认数减一：防止数据丢失。
+                * 强确认的数目大于总副本数的一半：防止集群内脑裂。
+        * Partition（消息的物理分区）
+        * Producer（发布消息到 Broker）
+        * Consumer（从 Broker 读取消息）
+        * Consumer Group（每个 consumer 属于一个特定的消费者组；支持以消费者组为单位从队列里拿消息，再分工处理）
+    * 部署结构
+        * 单机部署：Producers --> Kafka Cluster (1 server), Topic --> Consumers，类似点对点模式。
+        * 集群部署：Producers --> Kafka Cluster (n servers), Topics --> Consumers.
+    * Kafka Topic Partition Layout
+        * 针对较大数据容量的场景。
+        * Topic & Partition：多个 Partition 支持水平扩展和并行处理（并行读写）。
+        * Partition & Replica：多机集群场景下，每个 Partition 依据副本因子添加多个副本。主分片在不同机器上可以并行处理，从副本在主分片宕机时可经由主从切换保障集群的高可用和容灾性。
+    * 使用（基于 Kafka Client 的生产者、消费者）
+        * 生产者：配置 producer properties，创建 KafkaProducer，构造 ProducerRecord
+        * 消费者：配置 consumer properties，创建 KafkaConsumer，订阅 Topic，拉取 ConsumerRecords，进行业务处理。
+    * 集群配置：在生产环境下的性能和稳定性。
+        * ISR (In-Sync Replica) 指标：表示当前处于同步状态的副本，即数据与主副本一致的副本。
+            * 若当前副本掉出 ISR 集合。可能是“多副本机制”的主从复制除了问题，延迟较大，甚至导致 broker 端的 rebalance，数据量较大时产生性能抖动。
+            * Rebalance：包括 Broker 的 rebalance 以及 Consumer Group 的 rebalance。
+            * 热点分区：需要重新平衡。（若分区策略有问题，热点分区会成为性能瓶颈，削弱了 Kafka 的水平扩展优势）
+    * 高级特性
+        * Kafka：存储数据；数据只读，追加式插入。
+        * 生产者：相当于 DML，操作数据、改变 MQ 的状态。
+            * 确认模式 ACK：可调，用于平衡性能和一致性。
+                * = 0：只发送，不保证写入。
+                * = 1：写入 当前 broker 集群的主分区即认为成功。
+                * = -1：写入最小的副本数即认为成功；保证了分布式场景下的高可用和数据一致性。
+            * 同步发送：异步转同步，在当前线程中同步等待返回结果；强制将消息刷入 broker，刷入磁盘后返回。
+            * 异步发送：默认异步发送，自动返回 Future.
+            * 生产消息的顺序：参数设置 + 同步发送。（优）防止网络抖动等导致的乱序；（劣）整体性能降低。
+            * 消息可靠性传递————消息的事务性：
+        * 消费者：相当于 DQL，查询数据，消费过程中没有任何状态的变化。
+            * Consumer Group：消息分发给消费者组里的某个消费者；所有消费者共享一个 offset（commit 的偏移量，记录当前消费进度；Kafka 不会删除数据）。
+            * 数量关系
+                * Partitions : Consumers = k : 1 where k ∈ Z*————均匀分区。
+                * Partitions : Consumers = m : n where m < n————出现限制消费者（通过配置避免此类情况）。
+                * Partitions : Consumers = m : n where m > n————尽量使消息分区被均匀消费。
+            * Offset 同步提交（更安全）：关闭自动提交开关；显式调用，同步提交 offset。
+            * Offset 异步提交（更快）：关闭自动提交开关；显式调用，异步提交 offset。
+            * Offset 自动提交：默认；可设置自动提交的时间窗口。
+            * Offset Seek：rebalance 后保证 Kafka 不重新消费。消费者停止消费后，rebalance 前，记录当前 offset；rebalance 后，消费者读取消息前，消费者 seek 跳转到之前记录的 offset 后继续消费。
+* RocketMQ
+    * 基于 Java 
+    * 结构
+        * NameServer Cluster：类比 Kafka 早期版本中依赖的 ZooKeeper 集群。
+        * Broker Cluster：负责将 Meta Info 和 Routing Info 发给 NameServers。
+        * Producer Cluster：通过 NameServers 获取 Meta Info 和 Routing Info。
+        * Consumer Cluster：通过 NameServers 获取 Meta Info 和 Routing Info。
+* RocketMQ vs Kafka
+    * 差异一：语言。RocketMQ 基于 Java 开发，Kafka 基于 Scala 开发。
+    * 差异二：延迟投递（一般要求在 MQ 外部做调度）、消息追溯等的支持。
+    * 差异三：RocketMQ 多个队列使用一个日志，Kafka 每个队列使用自己的日志（队列和日志间的切换开销较小；性能完胜）。
+###### 三代：Apache Pulsar
+* 特点
+    * 在第二代的基础上实现了 MQ 本身节点和存储节点的分离，支持更大规模的集群。
+* Pulsar
+    * 基于 Java
+    * 原理 & 特性
+        * 基于 Topic：与 RocketMQ 和 Kafka 一致。
+        * 支持 namespace（可用于逻辑隔离同一 Topic 下的数据） 和多租户：天生适合云环境。
+        * 支持 Partition 分区。
+        * 计算与存储分离（高可用集群）
+            * Broker 节点：Serving Nodes（即 brokers，支持扩展）。
+            * 存储节点：Storage Nodes（即 bookies，支持扩展）；存储底层用 Apache BooKeeper（支持 WAL）。
+    * 4种消费模式
+        * Exclusive：相当于从 Topic 模式退化成点对点模式；同一时间内只有一个消费者组内的消费者能获取消息。
+        * Failover：同一时间内只有一个消费者组内的消费者能获取消息；出现异常则发送给另一个消费者。
+        * Shared：所有消息随机共享给消费者组内的不同消费者。
+        * Key Shared：所有消息按 key 共享给消费者组内的不同消费者。
+
+##### EIP 框架：Camel / Spring Integration 
+* EIP 企业集成模式
+    * SOA / ESB / MQ 的理论基础
+    * 集成领域两大法宝：RPC, Messaging
+    * 处理流程的抽象：“管道 + 过滤器”
+        * input：输入源头
+        * pipeline：数据在管道中流动
+        * nodes：中间的处理节点，数据被过滤、增强、计算、转换、业务处理等
+        * output：目的地
+##### Camel
+* 特点
+    * 可以打通各种 MQ，同时增加额外的路由处理。
+    * 灵活，减少大量的集成代码。
+
+#### 经验认识
+* 基础 MQ Server
+    * 拆分 Broker 和 Client
+    * 用 SpringMVC 做一个 HTTP Server，将 Queue 放在 web server 端；Producer 和 Consumer 通过 HTTPclient / Okhttp 访问 Queue
+    * 设计消息读、写接口，确认接口，提交 offset 接口
+    * 实现基于 offset 消费者增量拉取消息
+* 功能完善的 MQ：增加策略
+    * 增加消息过期、消息重试、消息定时投递等
+    * 增加批量操作（消息打包读写）
+    * 增加消息清理操作（避免内存爆炸）
+    * 考虑消息的持久化（写入数据库 / 使用 WAL / 使用 Pulsar 的组件 BooKeeper）
+    * 将 SpringMVC 替换为基于 Netty 实现的 TCP 的传输 / rsocket / websocket：从 HTTP 到更底层的 TCP 传输，支持长连接，进一步优化了网络传输通信性能
+    * 特点：功能较完备，内存不溢出，消息持久化，基于 TCP 实现 server 端向 client 端 PUSH 的模式。
+* 体系完善的 MQ
+    * 特点：生产级可用的 MQ，支持对接各种技术。
+    * 封装 JMS 接口规范
+    * 实现 STOMP（简单文本对象消息协议）消息规范
+    * 实现消息事务机制，与现有的事务管理器集成
+    * 对接 Spring Boot，实现 Starter 方便使用
+    * 对接 EIP 框架（Camel 或 Spring Integration）
+    * 优化内存和磁盘使用
+
+
+
